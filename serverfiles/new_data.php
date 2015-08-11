@@ -10,7 +10,6 @@ function createNewPrediction() {
         $db = new DbConnect();
         $user_id=2;
         // file_put_contents('prueba.txt',$_POST['evolCon']);
-        "2-".
         $dir = 'eegs';
         file_put_contents ($dir.'/test1.txt', "Concetracion: ".$_POST['evolCon']."\n");
         file_put_contents($dir.'/test1.txt',"Meditacion: ".$_POST['evolMed']."\n",FILE_APPEND);
