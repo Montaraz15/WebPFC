@@ -3,7 +3,7 @@ require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_line.php');
 
 
-$fh = fopen('../eegs/test1.txt','r');
+$fh = fopen('../eegs/'.$_GET["ses"].'.txt','r');//test1
 while ($line = fgets($fh)) {
   // <... Do your work with the line ...>
   $claves = preg_split("/[,\[\])]+/",$line);
@@ -11,13 +11,13 @@ while ($line = fgets($fh)) {
   if($claves[0]=="Concetracion: "){
     $concetracion=$claves;
     // print_r($concetracion);
-    unset($concetracion[0]);
+    unset($concetracion[0]);//quita el primer elemento ("Concentración: ")
 
   }
   if($claves[0]=="Meditacion: "){
     $meditacion=$claves;
     // print_r($meditacion);
-    unset($meditacion[0]);
+    unset($meditacion[0]);//quita el primer elemento ("Meditacion: ")
 
   }
   // echo($line);
@@ -62,6 +62,7 @@ $graph->xaxis->title->SetFont( FF_FONT1 , FS_BOLD );
 //
 // Create the first data series
 $lineplot=new LinePlot($ydata);
+$lineplot->SetLegend("Concentracion");
 $lineplot->SetWeight( 2 );   // Two pixel wide
 //
 // Add the plot to the graph
@@ -69,6 +70,7 @@ $graph->Add($lineplot);
 //
 // // Create the second data series
 $lineplot2=new LinePlot($ydata2);
+$lineplot2->SetLegend("Meditacion");
 $lineplot2->SetWeight( 2 );   // Two pixel wide
 //
 // Add the second plot to the graph

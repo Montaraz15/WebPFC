@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/general.css" rel="stylesheet">
+<script src="js/chargeImg.js"/></script>
+<script src="js/jquery-1.11.3.js"></script>
 <title>Mindwave records</title>
 
 </head>
@@ -35,7 +37,7 @@
           <?php
 
           $db = new DbConnect();
-          $query = "Select * from eeg where user_id=2 order by Session_id DESC";
+          $query = "Select * from eeg order by Session_id DESC";
           $result = mysql_query($query);
           $json_res=array();
           if ($result) {
@@ -56,7 +58,7 @@
             // var_dump($element);
             $aux=json_decode($element);
             // var_dump($aux);
-            echo "<tr class=\"active\" style=\"cursor:pointer;\">";
+            echo "<tr class=\"active\" style=\"cursor:pointer;\" onclick=\"newGraf('".$aux->FileRoute."');\" >";//
             echo "<td>".$aux->Session_id."</td>";
             echo "<td>".$aux->Meditation."</td>";
             echo "<td>".$aux->Concentration."</td>";
@@ -72,7 +74,7 @@
       </div>
     </div>
     <div style="width:100%;text-align:center;">
-      <img src="grafica.php" />
+      <img id="graf" src="img/blank_img.png" style="width:1000;height:350;" />
     </div>
   </div>
 
