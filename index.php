@@ -58,7 +58,7 @@
             // var_dump($element);
             $aux=json_decode($element);
             // var_dump($aux);
-            echo "<tr class=\"active\" style=\"cursor:pointer;\" onclick=\"newGraf('".$aux->FileRoute."');\" >";//
+            echo "<tr class=\"active\" style=\"cursor:pointer;\" onclick=\"newGraf('".$aux->FileRoute."',".$aux->ts.",".$aux->Session_id.");\" >";//
             echo "<td>".$aux->Session_id."</td>";
             echo "<td>".$aux->Meditation."</td>";
             echo "<td>".$aux->Concentration."</td>";

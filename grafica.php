@@ -3,7 +3,7 @@ require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_line.php');
 
 
-$fh = fopen('../eegs/'.$_GET["ses"].'.txt','r');//test1
+$fh = fopen('../eegs/'.$_GET["path"].'.txt','r');//test1
 while ($line = fgets($fh)) {
   // <... Do your work with the line ...>
   $claves = preg_split("/[,\[\])]+/",$line);
@@ -52,8 +52,11 @@ $graph->SetShadow();
 
 // Setup margin and titles
 $graph->SetMargin(40,20,20,40);
-$graph->title->Set('Session #');
-$graph->subtitle->Set('(Fecha fakeMarch 12, 2008)');
+$graph->title->Set('Session '.$_GET["ses"]);
+$mes=date("F",$_GET["ts"]/1000);
+$año=date("Y",$_GET["ts"]/1000);
+$dia=date("j",$_GET["ts"]/1000);
+$graph->subtitle->Set('(Fecha '.$mes.' '.$dia.', '.$año.')');
 $graph->xaxis->title->Set('Segundos');
 $graph->yaxis->title->Set('# Nivel en %');
 //
