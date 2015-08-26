@@ -1,8 +1,9 @@
 <?php
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '28833198f');
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', 'localhost');
 define('DB_NAME', 'wcdb');
+  session_start();
 // require_once('jpgraph/src/jpgraph.php');
 
 
@@ -40,6 +41,10 @@ function generateRandomString($length) {
         $randomString .= $characters[mt_rand(0, $charactersLength - 1)];
     }
     return $randomString;
+}
+function redirect($path){
+	header('Location: ./' . $path);
+	exit();
 }
 
 ?>

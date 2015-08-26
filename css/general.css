@@ -22,3 +22,6 @@
   width:35%;
   border:1px solid red;
 }
+#error{
+  color: #F00;
+}
