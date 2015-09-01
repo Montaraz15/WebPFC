@@ -1,6 +1,6 @@
 <?php
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '28833198f');
+define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'wcdb');
   session_start();
